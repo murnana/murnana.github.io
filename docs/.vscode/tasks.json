@@ -8,7 +8,13 @@
             "type": "shell",
             "command": "make html",
             "windows": {
-                "command": ".\\make html"
+                "command": ".\\make html",
+                "options": {
+                    "env": {
+                        "PATH": "${workspaceFolder}/.venv/Scripts;${env:PATH};",
+                        "PIPENV_VENV_IN_PROJECT": "${workspaceFolder}/.venv"
+                    },
+                }
             },
             "group": {
                 "kind": "build",

@@ -1,6 +1,6 @@
 {
     "terminal.integrated.env.windows": {
-        "PATH": "${workspaceFolder}/node_modules/.bin;${workspaceFolder}/.venv/Scripts;${env:PATH};",
+        "PATH": "${workspaceFolder}/.venv/Scripts;${env:PATH};",
         "PIPENV_VENV_IN_PROJECT": "${workspaceFolder}/.venv"
     },
     "python.envFile": "${workspaceFolder}/.venv",
