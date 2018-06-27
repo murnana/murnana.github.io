@@ -13,13 +13,14 @@
                     "env": {
                         "PATH": "${workspaceFolder}/.venv/Scripts;${env:PATH};",
                         "PIPENV_VENV_IN_PROJECT": "${workspaceFolder}/.venv"
-                    },
+                    }
                 }
             },
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": []
         }
     ]
 }

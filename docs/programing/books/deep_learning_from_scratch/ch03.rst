@@ -1,0 +1,283 @@
+===============================================================================
+3章 ニューラルネットワーク
+===============================================================================
+
+入力信号の総和を出力信号に変換する関数を、一般に **活性化関数** (activation function)という。
+活性化関数には候補となる関数がいくつかある。
+
+パーセプトロンの場合は、閾値を境にして値が変わるため、「ステップ関数」や「階段関数」と呼ばれる
+
+活性化関数はほかにもある。
+今回は **シグモイド関数** (sigmoid function)について。
+
+
+シグモイド関数
+=================
+
+シグモイド関数の一般項は
+
+.. math::
+
+    h(x) = \frac{1 + \exp(-x)}{1}
+
+
+ここでいうexpとは **ネイピア数** のことを指す。
+
+
+.. plot:: 
+
+    import numpy
+    import matplotlib.pylab as plt
+
+    """
+    ステップ関数
+    :param numpy.array: x
+    """
+    def step_function(x):
+        y = x > 0   # 配列Xの各要素を比較した結果の配列をYに入れる
+        return y.astype(numpy.int)  # Yの各要素booleanをintがたに変換
+
+
+
+    """
+    シグモイド関数
+    :param numpy.array: x
+    """
+    def sigmoid(x):
+        return 1 / (1 + numpy.exp(-x))  # exp = 指数関数のこと
+
+
+    if __name__ == "__main__":
+        x = numpy.arange(-5.0, 5.0, 0.1)    # 0.1刻みで、-5.0 ~ 5.0の配列
+        y1 = step_function(x)
+        y2 = sigmoid(x)
+        plt.plot(x, y1, linestyle = '--', label = 'step')
+        plt.plot(x, y2, label = 'sigmoid')
+        plt.ylim(-0.1, 1.1) # y軸の範囲
+        plt.show()
+
+
+
+Rectified Linear Unit; ReLU (正規化線形関数、ランプ関数)
+==========================================================
+
+ReLUは、 **0未満の時は0、0以上の時は0以上の値** を出力する関数
+
+.. math::
+
+    h(x) = \left\{ \begin{array}{ll}
+        x & (x > 0) \\
+        0 & (x \leq 0)
+    \end{array} \right.
+
+
+.. code-block:: python
+
+    def relu(x):
+        return np.maximum(0, x)
+
+
+
+3層ニューラルネットワークの実装
+=================================
+
+行列とは何かは知っているので省略！
+
+
+.. code-block:: python
+
+    import numpy
+    import matplotlib.pylab as plt
+    import step_and_sigmoid
+
+
+    """
+    恒常関数
+    値をそのまま返す関数のこと
+    :param numpy.array: x
+    """
+    def identity_function(x):
+        return x
+
+
+
+    """
+    ネットワークの構築
+    重みとバイアスの初期化をします
+    …本当は学習結果で分かった重みを突っ込む気がする
+    """
+    def init_network():
+        network = {}
+        # 1層目の重みとバイアス
+        network['W1'] = numpy.array([[0.1, 0.3, 0.5], [0.2, 0.4, 0.6]])
+        network['b1'] = numpy.array([0.1, 0.2, 0.3])
+
+        # 2層目の重みとバイアス
+        network['W2'] = numpy.array([[0.1, 0.4], [0.2, 0.5], [0.3, 0.6]])
+        network['b2'] = numpy.array([0.1, 0.2])
+
+        # 3層目の重みとバイアス
+        network['W3'] = numpy.array([[0.1, 0.3], [0.2, 0.4]])
+        network['b3'] = numpy.array([0.1, 0.2])
+
+        return network
+
+
+    """
+    入力からニューラルネットワークを通じて出力する
+    """
+    def forward(network, x):
+        # 1層目のニューロンを計算する
+        a1 = numpy.dot(x, network['W1']) + network['b1']
+        z1 = step_and_sigmoid.sigmoid(a1)
+
+        # 2層目のニューロンを計算する
+        a2 = numpy.dot(z1, network['W2']) + network['b2']
+        z2 = step_and_sigmoid.sigmoid(a2)
+
+        # 3層目のニューロンを計算する
+        a3 = numpy.dot(z2, network['W3']) + network['b3']
+        y = identity_function(a3)
+
+        return y
+
+
+    if __name__ == "__main__":
+        network = init_network()
+        print(f'network is {network}')
+
+        x = numpy.array([1.0, 0.5])
+        print(f'x = {x}')
+
+        y = forward(network, x)
+        print(f'y = {y}')
+
+
+
+
+学習問題の種類
+=================================
+
+補足と言いつつ実は大事なのでは
+
+
+分類問題
+---------
+データがどのクラスに属するのか。
+例えば、人の画像から性別を判断する、など
+
+- ソフトマックス
+    全ての入力信号から影響を受ける出力信号を1つ出す
+    出力は合計すると1になることから、「確率」として解釈することができる
+
+
+回帰問題
+----------
+データから(連続的な)数値を予測する問題。
+例えば、人の画像から体重を予測する、など
+
+- 恒常関数
+    入力信号1つに対して、出力信号を1つ出す
+
+
+
+
+指数(exp)の扱いに注意
+======================
+指数をそのまま扱うと、オーバーフローで :py:const:`infinity` や ::py:const:`nan` が出てきたりする
+Python2かPython3かによっても最大値が変わるので、都度確認したほうが良い。
+
+今回はPython3なので…
+
+- 整数は(一応)無制限
+- 浮動小数点はCのdouble(:math:`2.225074 * 10^{-308} < x < 1.797693 * 10^{308}`)
+
+数値の型はほかにもあるけれど割合…
+
+.. seealso::
+
+    `Python ：　整数最大値、辞書項目数の最大値: enajet <http://enajet.air-nifty.com/blog/2011/09/python-9a0e-1.html>`_
+
+    `4. 組み込み型 — Python 3.6.5 ドキュメント <https://docs.python.org/ja/3/library/stdtypes.html#typesnumeric>`_
+        4.4. 数値型 int, float, complex
+
+    `浮動小数点数型と誤差 <http://www.cc.kyoto-su.ac.jp/~yamada/programming/float.html>`_
+
+
+
+
+出力層のニューロン数
+======================
+出力層は一般的に、分類したい種類(クラス)の数に設定する
+
+
+
+
+MNIST を使用した実践
+======================
+Python3系ではPILは使えない(おかしい、Python3の書籍のはず…)
+ので、pillowを入れる。
+
+
+.. code-block:: shell
+
+    $ pip install pillow
+
+
+
+このドキュメントではpipenvを使っているので
+
+.. code-block:: shell
+
+    $ pipenv install pillow
+
+
+.. seealso::
+
+    `python3系でのPython Image Libraryの使用方法 <https://qiita.com/ukwksk/items/483d1b9e525667b77187>`_
+
+
+写経結果:
+
+.. code-block:: python
+
+    '''
+    MNIST を使用した実践
+    元のソース: https://github.com/oreilly-japan/deep-learning-from-scratch
+    '''
+    import sys, os
+    dirname = os.path.dirname(os.path.abspath(__file__))
+    # 親ディレクトリを追加
+    sys.path.append(
+        os.path.abspath(
+            os.path.join(dirname,'..')
+        )
+    )
+
+    import numpy
+    from dataset.mnist import load_mnist
+    from PIL import Image   # Python3ではpilが使えないので、pillowを使用している
+
+    '''
+    イメージを開く
+    他のプログラムを通して開きます
+    :param numpy.array: img 画像データの入った二次元行列
+    '''
+    def img_show(img):
+        pil_img = Image.fromarray(numpy.uint8(img)) # numpy.arrayのデータをPILのデータオブジェクトに変換
+        pil_img.show()
+
+    if __name__ == '__main__':
+        # MNISTの読み込み
+        # flatten=True で1次元配列にしている
+        (x_train, t_train), (x_test, t_test) = load_mnist(flatten=True, normalize=False)
+
+        img = x_train[0]    # 訓練画像を1枚選択する
+        label = t_train[0]  # ↑の訓練ラベルを引っ張り出す
+        print(label)        # 「5」という画像であることを指す
+
+        print(img.shape)            # (784,) 28 * 28の画像が一次元になっている
+        img = img.reshape(28, 28)   # 形状を元の画像サイズに変形
+        print(img.shape)            # (28, 28) 28 * 28の二次元になった
+
+        img_show(img)

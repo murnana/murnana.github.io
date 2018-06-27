@@ -9,5 +9,7 @@
 			"path": "theme"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"restructuredtext.sphinxBuildPath": "${workspaceRoot}/make"
+	}
 }

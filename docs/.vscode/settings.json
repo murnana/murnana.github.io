@@ -3,6 +3,8 @@
         "PATH": "${workspaceFolder}/.venv/Scripts;${env:PATH};",
         "PIPENV_VENV_IN_PROJECT": "${workspaceFolder}/.venv"
     },
-    "python.envFile": "${workspaceFolder}/.venv",
-    "python.pythonPath": "${workspaceFolder}/.venv/Scripts/python",
+    "python.envFile": "${workspaceRoot}/.venv",
+    "python.pythonPath": "${workspaceRoot}/.venv/Scripts/python",
+    "python.venvPath": "${workspaceRoot}/.venv",
+    "restructuredtext.sphinxBuildPath": "${workspaceRoot}/make"
 }
