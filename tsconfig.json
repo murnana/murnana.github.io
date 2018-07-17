@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noUnusedLocals" : true,
+    "noImplicitThis": true,
+    "noUnusedParameters": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "sourceMap": true,
+    "lib": [
+        "dom",
+        "es2015"
+    ],
+    "module": "es2015",
+    "target": "es5",
+    "jsx": "react"
+  }
+}

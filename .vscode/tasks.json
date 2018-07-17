@@ -1,0 +1,75 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "make html",
+            "type": "shell",
+            "command": "make html",
+            "windows": {
+                "command": ".\\make html",
+            },
+            "options": {
+                "env": {
+                    "PATH": "${workspaceFolder}/docs/.venv/Scripts;${env:PATH};",
+                    "PIPENV_VENV_IN_PROJECT": "${workspaceFolder}/docs/.venv"
+                },
+                "cwd": "${workspaceFolder}/docs/"
+            },
+            "group":"build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Build development",
+            "type": "shell",
+            "command": "webpack --mode development",
+            "options": {
+                "env": {
+                    "PATH": "${workspaceFolder}/node_modules/.bin;${env:PATH};"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn":[
+                "make html"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Build production",
+            "type": "shell",
+            "command": "webpack",
+            "options": {
+                "env": {
+                    "PATH": "${workspaceFolder}/node_modules/.bin;${env:PATH};"
+                }
+            },
+            "group":"build",
+            "dependsOn":[
+                "make html"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "Test development",
+            "type": "shell",
+            "command": "webpack-dev-server --mode development --open",
+            "options": {
+                "env": {
+                    "PATH": "${workspaceFolder}/node_modules/.bin;${env:PATH};"
+                }
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "dependsOn":[
+                "make html"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
