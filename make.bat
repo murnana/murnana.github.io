@@ -31,7 +31,7 @@ if errorlevel 9009 (
 goto end
 
 :livehtml
-sphinx-autobuild --open-browser --watch "%SOURCEDIR%" -b html "%SOURCEDIR%" "%BUILDDIR%/html" "%SPHINXOPTS%"
+sphinx-autobuild --open-browser --watch %SOURCEDIR% -b html %SOURCEDIR% %BUILDDIR%/html %SPHINXOPTS%
 
 :help
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
