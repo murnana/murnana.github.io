@@ -2,6 +2,16 @@
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
     "version": "2.0.0",
+    "windows": {
+        "options": {
+            "shell": {
+                "executable": "C:\\Windows\\System32\\cmd.exe",
+                "args": [
+                    "/c"
+                ]
+            }
+        }
+    },
     "tasks": [
         {
             "label": "make html",
@@ -10,6 +20,18 @@
                 "command": "${workspaceFolder}\\make.bat",
                 "args": [
                     "html"
+                ]
+            },
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "make livehtml",
+            "type": "process",
+            "windows": {
+                "command": "${workspaceFolder}\\make.bat",
+                "args": [
+                    "livehtml"
                 ]
             },
             "group": "build",

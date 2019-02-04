@@ -5,6 +5,10 @@ name = "pypi"
 
 [dev-packages]
 sphinx = "*"
+sphinx-autobuild = "*"
+matplotlib = "*"
+ipython = "*"
+numpy = "*"
 
 [packages]
 
