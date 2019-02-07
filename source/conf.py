@@ -44,6 +44,7 @@ extensions = [
     'sphinx.ext.viewcode',      # ソースコードを描画する
     'sphinx.ext.graphviz',      # グラフを書く
     'sphinx.ext.mathjax',
+    'sphinx.ext.todo',
 
     # matplotlib.sphinxextのセット
     'matplotlib.sphinxext.plot_directive',
@@ -78,6 +79,25 @@ exclude_patterns = []
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = None
 
+
+# -- Options for Support for todo items -------------------------------------------------
+
+# If this is True, todo and todolist produce output,
+# else they produce nothing.
+# The default is False.
+todo_include_todos = True
+
+# If this is True, todo emits a warning for each TODO entries.
+# The default is False.
+todo_emit_warnings = True
+
+# If this is True, todolist produce output without file path and line,
+# The default is False.
+todo_link_only = True
+
+# # Emitted when a todo is defined.
+# # node is the defined sphinx.ext.todo.todo_node node.
+# todo-defined = 'node'
 
 # -- Options for HTML output -------------------------------------------------
 

@@ -11,9 +11,4 @@ Android アプリケーションを制作するのに欠かせないIDE
     :glob:
     :titlesonly:
 
-    */index
-
-.. seealso::
-
-    `初めてのアプリの作成  |  Android Developers <https://developer.android.com/training/basics/firstapp/?hl=ja>`_
-        
+    ./turorial/build-your-first-app
