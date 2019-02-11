@@ -13,6 +13,7 @@ Welcome to murnana.github.io!
 
     programing/books/index
     programing/language/python/index
+    programing/platform/android/index
 
 
 Indices and tables
@@ -20,3 +21,8 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+
+TodoList
+===================
+.. todolist::
