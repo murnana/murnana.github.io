@@ -89,10 +89,30 @@ Android Studio の初回起動
 
     Finish後、必要な依存パッケージがダウンロードされる
 
+    .. image:: ../images/7-1_start-project.png
+
+    スタート直後は、プロジェクトを読み込み切っていない状態なので注意
+
+    .. image:: ../images/7-2_start-project.png
+
+    Gradleプロジェクトが読み込み終わったらOK。
+
+
 
 
 エミュレータ or 実機での確認
 ===============================================================================
+
+
+アプリケーションをビルドし、実機またはエミュレータに実行させるには、Runを押す
+
+.. image:: ../images/8-1_run.png
+
+
+その後、実機又はエミュレータを選ぶ
+
+.. image:: ../images/8-2_run.png
+
 
 実機の場合
 -------------------------------------------------------------------------------
@@ -103,43 +123,25 @@ Android Studio の初回起動
 
 エミュレータの場合
 -------------------------------------------------------------------------------
-.. todo:: エミュレータでの確認手順を書く https://developer.android.com/training/basics/firstapp/running-app?hl=ja#Emulator
+
+新規作成時は「Create New Virtual Device」を押下。そうでなければデバイスのリストが並ぶので、それを選んで実行できる。
+
+.. image:: ../images/8-2_run.png
 
 
+エミュレートしたいデバイスを選ぶ
 
-テキストとボタンを作成する
-===============================================================================
+.. image:: ../images/9-1_create-virtual.png
 
+デバイスのAndroidOSバージョンとABIを選択
 
-Layout Editorから設置する
--------------------------------------------------------------------------------
+.. todo:: ABIについて書く https://developer.android.com/ndk/guides/abis?hl=ja
 
-.. todo:: Layout Editor を開く https://developer.android.com/training/basics/firstapp/running-app?hl=ja#Emulator
+.. image:: ../images/9-2_create-virtual.png
 
-.. todo:: テキスト ボックスを追加する https://developer.android.com/training/basics/firstapp/building-ui?hl=ja#textbox
+「AVD Name」にエミュレータの名前、「Startup orientation」に開始時の向きを入れる
 
-.. todo:: ボタンを追加する https://developer.android.com/training/basics/firstapp/building-ui?hl=ja#button
-
-
-
-文字列を Translations Editorから得る
--------------------------------------------------------------------------------
-
-.. todo:: UI 文字列を変更する https://developer.android.com/training/basics/firstapp/building-ui?hl=ja#strings
-
-
-UIの位置を調整する
--------------------------------------------------------------------------------
-
-.. todo:: テキスト ボックスのサイズを柔軟にする https://developer.android.com/training/basics/firstapp/building-ui?hl=ja#flexible
-
-
-
-
-ボタン・入力に反応させる
-===============================================================================
-
-.. todo:: 別の Activity を開始する https://developer.android.com/training/basics/firstapp/starting-activity?hl=ja
+.. image:: ../images/9-3_create-virtual.png
 
 
 .. seealso::
