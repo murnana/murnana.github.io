@@ -133,9 +133,7 @@ Android Studio の初回起動
 
 .. image:: ../images/9-1_create-virtual.png
 
-デバイスのAndroidOSバージョンとABIを選択
-
-.. todo:: ABIについて書く https://developer.android.com/ndk/guides/abis?hl=ja
+デバイスのAndroidOSバージョンと :term:`ABI` を選択
 
 .. image:: ../images/9-2_create-virtual.png
 

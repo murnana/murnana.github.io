@@ -13,7 +13,7 @@ Welcome to murnana.github.io!
 
     programing/books/index
     programing/language/python/index
-    programing/platform/android/android-studio/index
+    programing/platform/android/index
 
 
 Indices and tables
