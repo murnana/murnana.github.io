@@ -14,6 +14,7 @@ Welcome to murnana.github.io!
     programing/books/index
     programing/language/python/index
     programing/platform/android/index
+    mathematics/index
 
 
 Indices and tables
