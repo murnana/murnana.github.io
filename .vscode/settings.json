@@ -1,8 +1,0 @@
-{
-    "terminal.integrated.env.windows": {
-        "PATH": "${workspaceFolder}/.venv/Scripts;${env:PATH};",
-        "PIPENV_VENV_IN_PROJECT": "${workspaceFolder}/.venv",
-        "WORKON_HOME": "${workspaceFolder}/.venv"
-    },
-    "restructuredtext.confPath": "${workspaceFolder}\\source",
-}

@@ -5,7 +5,6 @@ name = "pypi"
 
 [dev-packages]
 sphinx = "*"
-sphinx-autobuild = "*"
 matplotlib = "*"
 ipython = "*"
 numpy = "*"
@@ -13,4 +12,4 @@ numpy = "*"
 [packages]
 
 [requires]
-python_version = "3.6"
+python_version = "3.7"

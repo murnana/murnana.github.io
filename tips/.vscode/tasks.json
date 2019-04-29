@@ -1,0 +1,85 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "shared",
+        "showReuseMessage": true,
+        "clear": false
+    },
+    "promptOnClose": true,
+    "isBackground": false,
+    "windows": {
+        "options": {
+            "shell": {
+                "executable": "C:\\Windows\\System32\\cmd.exe",
+                "args": [
+                    "/c"
+                ]
+            }
+        }
+    },
+    "inputs": [
+        {
+            "id": "python-path",
+            "type": "promptString",
+            "description": "path/to/python"
+        },
+        {
+            "id": "GRAPHVIZ_DOT",
+            "type": "promptString",
+            "description": "path/to/dot.exe"
+        }
+    ],
+    "tasks": [
+        {
+            "label": "install pipenv",
+            "type": "process",
+            "command": "pip",
+            "args": [
+                "install",
+                "pipenv"
+            ],
+            "group": "none",
+            "problemMatcher": []
+        },
+        {
+            "label": "initalize project",
+            "type": "process",
+            "windows": {
+                "command": "pipenv",
+                "args": [
+                    "--python=${input:python-path}",
+                    "install",
+                    "--dev"
+                ]
+            },
+            "group": "none",
+            "problemMatcher": [],
+            "dependsOn": [
+                "install pipenv"
+            ]
+        },
+        {
+            "label": "make html",
+            "type": "process",
+            "windows": {
+                "options": {
+                    "env": {
+                        "Path": "${workspaceFolder}\\.venv\\Scripts;${env:Path}",
+                        "SPHINXOPTS": "-D graphviz_dot=${input:GRAPHVIZ_DOT}",
+                    }
+                },
+                "command": "${workspaceFolder}\\make.bat",
+                "args": [
+                    "html"
+                ]
+            },
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}
