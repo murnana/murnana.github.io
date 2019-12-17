@@ -1,0 +1,28 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build develop",
+      "command": "npm",
+      "args": ["run", "develop", "-o"],
+      "group": "build",
+      "isBackground": true,
+      "dependsOn": ["format", "clean"],
+      "problemMatcher": ["$eslint-compact"]
+    },
+    {
+      "label": "format",
+      "type": "npm",
+      "script": "format",
+      "problemMatcher": ["$eslint-compact"]
+    },
+    {
+      "label": "clean",
+      "type": "npm",
+      "script": "clean",
+      "problemMatcher": []
+    }
+  ]
+}
