@@ -1,0 +1,13 @@
+# Sphinxとは
+
+> Sphinxは知的で美しいドキュメントを簡単に作れるようにするツールです。
+
+ドキュメントを自動的に生成するツール。 APIドキュメントに向いている
+
+# お品書き
+
+<div class="toctree" data-titlesonly="" data-numbered="">
+
+markup ext
+
+</div>
