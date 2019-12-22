@@ -23,6 +23,14 @@
       "type": "npm",
       "script": "clean",
       "problemMatcher": []
+    },
+    {
+      "label": "build production",
+      "type": "npm",
+      "script": "build",
+      "group": "build",
+      "dependsOn": ["format", "clean"],
+      "problemMatcher": []
     }
   ]
 }
