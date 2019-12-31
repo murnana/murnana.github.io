@@ -1,14 +1,33 @@
-const path = require(`path`)
+/**
+ *
+ */
+const Path = require("path")
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions
+exports.onCreateNode = ({ node, getNode, actions: { createNodeField } }) => {
+  if (node.internal.type === "MarkdownRemark") {
+    const { relativePath } = getNode(node.parent)
+    createNodeField({
+      node,
+      name: "relativePath",
+      value: relativePath,
+    })
+  }
+}
 
-  const oldMarkDownPagesQuery = await graphql(`
-    {
-      allMarkdownRemark {
+exports.createPages = async ({
+  actions: { createPage },
+  graphql,
+  reporter,
+}) => {
+  const allMarkdownCreatePagesQuery = await graphql(`
+    query AllMarkdownCreatePagesQuery {
+      allMarkdownRemark(sort: { fields: fields___relativePath, order: ASC }) {
         edges {
           node {
             id
+            fields {
+              relativePath
+            }
           }
         }
       }
@@ -16,18 +35,29 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   `)
 
   // Handle errors
-  if (oldMarkDownPagesQuery.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
+  if (allMarkdownCreatePagesQuery.errors) {
+    reporter.panicOnBuild(`${allMarkdownCreatePagesQuery.errors}`)
+    console.error(allMarkdownCreatePagesQuery.errors)
     return
   }
 
-  oldMarkDownPagesQuery.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: `/old-markdown-pages/${node.id}/`,
-      component: path.resolve(`src/templates/old-markdown-pages-template.js`),
-      context: {
-        id: node.id,
-      }, // additional data can be passed via context
-    })
-  })
+  allMarkdownCreatePagesQuery.data.allMarkdownRemark.edges.forEach(
+    ({
+      node: {
+        fields: { relativePath },
+      },
+    }) => {
+      createPage({
+        path: relativePath,
+        component: Path.resolve(
+          "src",
+          "templates",
+          "markdown-pages-template.js"
+        ),
+        context: {
+          relativePath: relativePath,
+        },
+      })
+    }
+  )
 }

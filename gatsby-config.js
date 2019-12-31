@@ -3,22 +3,26 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
+const path = require("path")
 
 module.exports = {
+  siteMetadata: {
+    title: "murnana.github.io",
+  },
   plugins: [
     // Markdown
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "old-markdown-pages",
-        path: `${__dirname}/src/old-markdown-pages`,
+        name: "markdown-pages",
+        path: path.resolve(__dirname, "src"),
       },
     },
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        name: "old-markdown-pages",
-        path: `${__dirname}/src/old-markdown-pages`,
+        name: "markdown-pages",
+        path: path.resolve(__dirname, "src"),
       },
     },
   ],

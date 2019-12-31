@@ -1,10 +1,20 @@
 import React from "react"
-import { Link } from "gatsby"
-import Layout from "../components/layout"
+import { graphql } from "gatsby"
+import Gravatar from "../components/gravatar"
 
-export default () => (
-  <Layout>
-    <h1>murnana.github.io</h1>
-    <Link to="./old-markdown-pages">Old: Markdown Pages</Link>
-  </Layout>
+export default ({ data }) => (
+  <div>
+    <h1>{data.site.siteMetadata.title}</h1>
+    <Gravatar hash={"b08382f69497236d00e369d103e2a535"} />
+  </div>
 )
+
+export const pageQuery = graphql`
+  query HomePageQuery {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`

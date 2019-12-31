@@ -4,9 +4,9 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build develop",
-      "command": "npm",
-      "args": ["run", "develop", "-o"],
+      "label": "develop",
+      "type": "npm",
+      "script": "develop",
       "group": "build",
       "isBackground": true,
       "dependsOn": ["format", "clean"],
@@ -25,11 +25,18 @@
       "problemMatcher": []
     },
     {
-      "label": "build production",
-      "type": "npm",
-      "script": "build",
+      "label": "production",
+      "command": "gatsby",
+      "args": ["build"],
       "group": "build",
       "dependsOn": ["format", "clean"],
+      "problemMatcher": []
+    },
+    {
+      "label": "serve",
+      "command": "gatsby",
+      "args": ["serve"],
+      "dependsOn": ["build production"],
       "problemMatcher": []
     }
   ]
