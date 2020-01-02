@@ -7,7 +7,7 @@
       "label": "develop",
       "type": "npm",
       "script": "develop",
-      "group": "build",
+      "group": { "kind": "build", "isDefault": true },
       "isBackground": true,
       "dependsOn": ["format", "clean"],
       "problemMatcher": ["$eslint-compact"]
@@ -36,6 +36,14 @@
       "label": "serve",
       "command": "gatsby",
       "args": ["serve"],
+      "dependsOn": ["build production"],
+      "problemMatcher": []
+    },
+    {
+      "label": "test",
+      "type": "npm",
+      "script": "test -- --watch",
+      "group": { "kind": "test", "isDefault": true },
       "dependsOn": ["build production"],
       "problemMatcher": []
     }

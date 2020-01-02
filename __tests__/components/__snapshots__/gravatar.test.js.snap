@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu render 1`] = `
+<div>
+  <img
+    src="https://www.gravatar.com/avatar/00000000000000000000000000000000?s=200"
+  />
+</div>
+`;
