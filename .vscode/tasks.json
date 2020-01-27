@@ -4,24 +4,37 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "ci",
+      "type": "shell",
+      "command": "npm",
+      "args": ["ci"],
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
       "label": "develop",
       "type": "npm",
       "script": "develop",
-      "group": { "kind": "build", "isDefault": true },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
       "isBackground": true,
-      "dependsOn": ["format", "clean"],
+      "dependsOn": ["format"],
       "problemMatcher": ["$eslint-compact"]
     },
     {
       "label": "format",
       "type": "npm",
       "script": "format",
+      "dependsOn": ["ci"],
       "problemMatcher": ["$eslint-compact"]
     },
     {
       "label": "clean",
       "type": "npm",
       "script": "clean",
+      "dependsOn": ["ci"],
       "problemMatcher": []
     },
     {
@@ -29,7 +42,7 @@
       "command": "gatsby",
       "args": ["build"],
       "group": "build",
-      "dependsOn": ["format", "clean"],
+      "dependsOn": ["format"],
       "problemMatcher": []
     },
     {
@@ -42,9 +55,12 @@
     {
       "label": "test",
       "type": "npm",
-      "script": "test -- --watch",
-      "group": { "kind": "test", "isDefault": true },
-      "dependsOn": ["build production"],
+      "script": "test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "dependsOn": ["format"],
       "problemMatcher": []
     }
   ]

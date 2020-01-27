@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HobbyPage snapshot 1`] = `
+<div>
+  <div>
+    <h1>
+      Hobby
+    </h1>
+    <p>
+      趣味のページ
+    </p>
+  </div>
+  <div>
+    <ul>
+      <li>
+        <a
+          href="/hobby/sdorica"
+        >
+          Sdorica
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

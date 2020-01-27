@@ -5,10 +5,18 @@ exports[`IndexPage render 1`] = `
   <h1>
     site.siteMetadata.title
   </h1>
-  <div>
-    <img
-      src="https://www.gravatar.com/avatar/b08382f69497236d00e369d103e2a535?s=200"
-    />
-  </div>
+  <img
+    alt="Gravatar"
+    src="https://www.gravatar.com/avatar/b08382f69497236d00e369d103e2a535?s=200"
+  />
+  <ul>
+    <li>
+      <a
+        href="/hobby"
+      >
+        Hobby
+      </a>
+    </li>
+  </ul>
 </div>
 `;
