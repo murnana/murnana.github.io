@@ -35,9 +35,7 @@ const MenuList = ({ onClick }) => (
         </Link>
       </li>
       <li>
-        <a href="#" onClick={onClick}>
-          Close
-        </a>
+        <button onClick={onClick}>Close</button>
       </li>
     </ul>
   </nav>
