@@ -1,0 +1,37 @@
+<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.1ddd39c799ecca2c60ce.css">*{margin:0;padding:0;border:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;list-style:inside}.clearfix:after{content:"";clear:both;display:inherit}.layout{width:100vw;max-width:none;height:100vh;max-height:none;overflow-x:hidden;overflow-y:auto}.layout>main{margin-right:3.6rem;padding:2rem 0 2rem 2rem;width:calc(100vw - 6.6rem);max-width:none;overflow-wrap:break-word}.layout>button.menu{width:3rem;max-width:none;height:3rem;max-height:none;position:fixed;right:0;top:0;opacity:.2;background-color:#fff;border:.3rem double #000;border-radius:.5rem;text-align:center;font-size:.7rem;color:#000}.layout>button.menu:hover{opacity:1}.layout>nav.menu{width:100vw;max-width:none;height:100vh;max-height:none;position:fixed;z-index:1;overflow-y:auto;overflow-wrap:break-word}.layout>nav.menu>.dialog{position:fixed;top:0;right:0;max-width:calc(100vw - 4.6rem);max-height:calc(100vh - 4.6rem);margin:.2rem;padding:1rem;background-color:#fff;border:.3rem double #000;border-radius:.5rem;text-align:left;font-size:100%;color:grey}.layout>nav.menu>ul>li{list-style:none}.layout>nav.menu>ul>li>*{text-decoration:none}.layout>nav.menu>ul>li>:link{color:#000}</style><meta name="generator" content="Gatsby 2.20.27"/><link as="script" rel="preload" href="/webpack-runtime-bd764cbdbc8d0cacfb43.js"/><link as="script" rel="preload" href="/framework-e5dc7793c9d7bc935506.js"/><link as="script" rel="preload" href="/styles-1c3c06048fccead674b8.js"/><link as="script" rel="preload" href="/app-d52bcde7c87186f41496.js"/><link as="script" rel="preload" href="/component---src-templates-markdown-pages-template-js-9e0b5e152df8c2c5a7b4.js"/><link as="fetch" rel="preload" href="/page-data/markdown-pages/mathematics/integer/euclidean-algorithm.md/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="layout"><button class="menu">Menu</button><main><article><h1>ユークリッドの互除法 (Euclidean Algorithm)</h1><div><p><a href="https://mathtrain.jp/euclid">https://mathtrain.jp/euclid</a></p>
+<blockquote>
+<p>| 自然数 a,b(a≥b) に対して
+| a を b で割った余りを r とおくとき
+| gcd(a, b)=gcd(b, r)
+| が成立し，これを繰り返し用いると
+| a と b の最大公約数が求まる。</p>
+</blockquote>
+<p>ちょっと何言ってるかよくわからないので、証明を追ってみる。</p>
+<p>gcd は <strong>最大公約数(greatest common divisor)</strong> のこと。</p>
+<p>| $a = 390$ , $b = 273$ のとき( $a \geq b = 390 \geq 273$ )
+| $a$ を $b$ で割った商 $p$ と、その余り $r$ は</p>
+<p>$$
+a \div b &#x26; = &#x26; 390 \div 273 \
+&#x26; = &#x26; 1 \ldots 117
+\end{aligned}$$</p>
+<p>つまり、$p = 1$, $r = 117$</p>
+<h1>使い方: $a=bp+r$</h1>
+<p>$$</p>
+<h2>$a = 390$ を $r = 117$ で割ってみる</h2>
+<blockquote>
+<p>$$390 \div 117 &#x26; = &#x26; 3 \ldots 39$$$$a &#x26; = &#x26; 117 \times 3 + 39$$</p>
+</blockquote>
+<h2>$b = 273$ を $r = 117$ で割ってみる</h2>
+<p>$$273 \div 117 &#x26; = &#x26; 2 \ldots 39$$$$bp &#x26; = &#x26; 117 \times 2 \ldots 39$$</p>
+<h1>使い方: $a=bp+r$</h1>
+<blockquote>
+<p>| ・ b,r がともに m の倍数 → a=bp+r も m の倍数。
+| となり gcd(a, b) ≥ gcd(b, r)
+| 以上から，gcd(a, b)=gcd(b, r)</p>
+</blockquote>
+<p>::: {.seealso}
+<a href="https://ja.wikipedia.org/wiki/%E3%83%A6%E3%83%BC%E3%82%AF%E3%83%AA%E3%83%83%E3%83%89%E3%81%AE%E4%BA%92%E9%99%A4%E6%B3%95">ユークリッドの互除法 -
+Wikipedia</a></p>
+<p><a href="https://mathtrain.jp/euclid">ユークリッドの互除法の証明と不定方程式 |
+高校数学の美しい物語</a>
+:::</p></div></article></main></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/markdown-pages/mathematics/integer/euclidean-algorithm.md";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-d52bcde7c87186f41496.js"],"component---src-pages-hobby-index-js":["/component---src-pages-hobby-index-js-a6ca140d9313836e4b07.js"],"component---src-pages-hobby-sdorica-js":["/component---src-pages-hobby-sdorica-js-7f98227ffeb140465681.js"],"component---src-pages-index-js":["/component---src-pages-index-js-50ddbdebe6320eab3f9b.js"],"component---src-templates-markdown-pages-template-js":["/component---src-templates-markdown-pages-template-js-9e0b5e152df8c2c5a7b4.js"]};/*]]>*/</script><script src="/component---src-templates-markdown-pages-template-js-9e0b5e152df8c2c5a7b4.js" async=""></script><script src="/app-d52bcde7c87186f41496.js" async=""></script><script src="/styles-1c3c06048fccead674b8.js" async=""></script><script src="/framework-e5dc7793c9d7bc935506.js" async=""></script><script src="/webpack-runtime-bd764cbdbc8d0cacfb43.js" async=""></script></body></html>

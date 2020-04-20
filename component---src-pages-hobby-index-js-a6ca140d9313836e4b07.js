@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{RsB9:function(e,l,n){"use strict";n.r(l);var t=n("q1tI"),a=n.n(t),c=n("Wbzz");l.default=function(){return a.a.createElement("div",null,a.a.createElement("div",null,a.a.createElement("h1",null,"Hobby"),a.a.createElement("p",null,"趣味のページ")),a.a.createElement("div",null,a.a.createElement("ul",null,a.a.createElement("li",null,a.a.createElement(c.a,{to:"/hobby/sdorica"},"Sdorica")))))}}}]);
+//# sourceMappingURL=component---src-pages-hobby-index-js-a6ca140d9313836e4b07.js.map

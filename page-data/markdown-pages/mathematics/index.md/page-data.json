@@ -1,0 +1,1 @@
+{"componentChunkName":"component---src-templates-markdown-pages-template-js","path":"/markdown-pages/mathematics/index.md","result":{"data":{"markdownRemark":{"html":"<p>食わず嫌いよくない。</p>\n<h1>勉強したものメモ</h1>\n<p>::: {.toctree maxdepth=\"2\" glob=\"\"}\ninteger/*\n:::</p>","frontmatter":{"title":"数学"}}},"pageContext":{"relativePath":"markdown-pages/mathematics/index.md"}}}
