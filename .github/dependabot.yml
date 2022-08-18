@@ -1,0 +1,31 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      # Check for updates managed by npm once a week
+      interval: weekly
+      # Use Japan Standard Time (UTC +09:00)
+      timezone: "Asia/Tokyo"
+    reviewers:
+      - murnana
+    target-branch: develop
+
+  # Maintain dependencies for npm
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      # Check for updates managed by npm once a week
+      interval: weekly
+      # Use Japan Standard Time (UTC +09:00)
+      timezone: "Asia/Tokyo"
+    reviewers:
+      - murnana
+    # Raise pull requests for version updates
+    # to npm against the `develop` branch
+    target-branch: develop
