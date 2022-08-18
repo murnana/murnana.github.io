@@ -1,0 +1,37 @@
+name: Build Test
+
+on:
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "develop" ]
+
+
+permissions: {}
+
+# Only cancel in-progress jobs or runs for the current workflow
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-test:
+    name: Build in ${{ matrix.os }} - Node.js ${{ matrix.node-version }}
+    strategy:
+      matrix:
+        node-version: [16]
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: npm install --save-dev
+    - name: Run build
+      run: npm run build
+    - name: Run test
+      run: npm run test
