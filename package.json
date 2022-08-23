@@ -26,7 +26,7 @@
     "gatsby-source-filesystem": "^2.11.1",
     "gatsby-transformer-remark": "^2.16.1",
     "react": "^16.14.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.14.0"
   },
   "devDependencies": {
     "babel-jest": "^24.9.0",
